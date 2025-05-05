@@ -188,11 +188,26 @@
     </button>
   </div>
 </section>
-<section id="servicos" class="py-16 bg-white w-full overflow-hidden">
+<section id="servicos" class="py-16 bg-white w-full overflow-hidden" x-data>
+  <style>
+    @keyframes scroll-x {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll-x {
+      animation: scroll-x 30s linear infinite;
+    }
+  </style>
+
   <h2 class="text-center text-xl font-bold mb-12">Nossos Serviços</h2>
 
-  <div class="relative overflow-x-auto scrollbar-hide">
-    <div class="flex space-x-6 px-6 w-max animate-scroll-x" x-init="$nextTick(() => $el.classList.add('animate-scroll-x'))">
+  <div class="relative overflow-x-hidden">
+    <div class="flex space-x-6 w-max animate-scroll-x px-6" x-init="$nextTick(() => $el.classList.add('animate-scroll-x'))">
       <template x-for="item in 2" :key="item">
         <div class="flex space-x-6">
           <template x-for="servico in [
@@ -219,6 +234,7 @@
     </div>
   </div>
 </section>
+
   
       
   <style>
