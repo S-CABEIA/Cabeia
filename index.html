@@ -82,15 +82,16 @@
 
  <body x-data="{ mostrarFormulario: false, openMenu: false }" class="font-sans text-gray-700 transition-opacity duration-500 opacity-0" x-init="$nextTick(() => document.body.classList.remove('opacity-0'))">
 
-    <!-- Preloader -->
+ <!-- Preloader -->
 <div id="preloader" class="fixed inset-0 z-50 bg-blue-900 flex items-center justify-center">
   <div class="text-white text-lg animate-pulse">Carregando...</div>
 </div>
-
 <script>
-  // Remove preloader quando a página estiver pronta
   window.addEventListener('load', () => {
-    document.getElementById('preloader').style.display = 'none';
+    setTimeout(() => {
+      // Remover o preloader após o carregamento da página
+      document.getElementById('preloader').style.display = 'none';
+    }, 500);  // Tempo de atraso (em milissegundos) antes de esconder o preloader
   });
 </script>
 
