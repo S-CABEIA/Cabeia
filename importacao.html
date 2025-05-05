@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importação</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-100 text-gray-900">
+
+   <!-- Navbar -->
+<header class="bg-white shadow" x-data="{ open: false, timeout: null }">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-blue-600">Dongoxi António Cabeia</h1>
+  
+      <nav class="flex space-x-4 items-center relative">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Início</a>
+        
+        <!-- Serviços com submenu -->
+        <div class="relative"
+             @mouseenter="open = true"
+             @mouseleave="timeout = setTimeout(() => open = false, 300)">
+          <a class="text-gray-700 hover:text-blue-600 transition cursor-pointer">Serviços</a>
+          
+          <!-- Submenu -->
+          <div x-show="open"
+               @mouseenter="clearTimeout(timeout); open = true"
+               @mouseleave="open = false"
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:leave="transition ease-in duration-200"
+               class="absolute left-0 mt-2 bg-white shadow-lg border rounded w-48 z-50"
+               style="display: none;">
+            <a href="importacao.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 transition">Importação</a>
+            <a href="exportacao.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 transition">Exportação</a>
+            <a href="internacional.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 transition">Trânsito Internacional</a>
+            <a href="cabotagem.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 transition">Cabotagem</a>
+            <a href="cargas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 transition">Transporte de Carga</a>
+          </div>
+        </div>
+  
+      </nav>
+    </div>
+  </header>
+  
+
+    <!-- Seção de Importação -->
+    <section class="bg-gray-50 py-16 px-6 lg:px-32 text-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6 border-l-4 border-blue-600 pl-4">Importação</h2>
+            <p class="text-lg mb-10 leading-relaxed">
+                A nossa experiência e conhecimento no processo de importação permitem-nos oferecer um serviço completo e seguro, garantindo que todos os procedimentos aduaneiros sejam cumpridos com precisão. Com a <strong>Dongoxi António Cabeia</strong>, você pode confiar que sua carga será tratada com profissionalismo e eficiência.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Descrição -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">O Que Fazemos</h3>
+                    <p class="text-base leading-relaxed mb-6">
+                        Oferecemos serviços de assessoria completa no processo de importação, incluindo a gestão do desembaraço aduaneiro, pagamento de impostos e taxas, entre outros. Garantimos o cumprimento de todas as normas legais e regulatórias em vigor, evitando custos extras e atrasos.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Benefícios</h3>
+                    <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                        <li><strong>Agilidade:</strong> Aceleramos todo o processo de importação, desde o desembaraço até a entrega.</li>
+                        <li><strong>Segurança:</strong> Seguimos todas as normas e práticas de segurança para garantir que sua mercadoria chegue em perfeito estado.</li>
+                        <li><strong>Consultoria especializada:</strong> Nossa equipe oferece orientação contínua sobre os melhores processos e práticas no comércio internacional.</li>
+                    </ul>
+                </div>
+
+                <!-- Processo -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4">Nosso Processo de Importação</h3>
+                    <ol class="space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-blue-600 font-semibold">1. Análise de Documentação</span>
+                            <p class="text-base leading-relaxed">Analisamos toda a documentação necessária para garantir conformidade com as leis e regulamentos do país.</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-blue-600 font-semibold">2. Desembaraço Aduaneiro</span>
+                            <p class="text-base leading-relaxed">Processamos a liberação das mercadorias junto à autoridade aduaneira para assegurar que tudo esteja conforme as regras.</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-blue-600 font-semibold">3. Pagamento de Impostos e Taxas</span>
+                            <p class="text-base leading-relaxed">Gerenciamos todos os pagamentos de impostos e taxas exigidos pelo governo para a liberação das mercadorias.</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-blue-600 font-semibold">4. Entrega Final</span>
+                            <p class="text-base leading-relaxed">Garantimos que sua carga chegue ao destino final de forma rápida, segura e eficiente.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="text-center mt-12"> 
+                <p class="text-lg mb-6">Precisa de ajuda com seu processo de importação?</p>
+                <button onclick="abrirModal()" class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Entre em contato conosco
+                </button>
+            </div>
+            
+            <!-- Modal -->
+            <div id="modalContato" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+                <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-lg text-center">
+                    <h2 class="text-xl font-semibold mb-4">Como deseja entrar em contato?</h2>
+                    <p class="mb-6">Escolha uma opção abaixo:</p>
+                    <div class="flex flex-col gap-4">
+                        <button onclick="abrirWhatsapp()" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition">
+                            WhatsApp
+                        </button>
+                        <button onclick="abrirGmail()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+                            Gmail
+                        </button>
+                        <button onclick="fecharModal()" class="text-gray-600 mt-2 hover:underline">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+            function abrirModal() {
+                document.getElementById('modalContato').classList.remove('hidden');
+            }
+            
+            function fecharModal() {
+                document.getElementById('modalContato').classList.add('hidden');
+            }
+            
+            function abrirWhatsapp() {
+                const numero = "244922943512";
+                const url = `https://wa.me/${numero}`;
+                window.location.href = url;
+            }
+            
+            function abrirGmail() {
+                const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+            
+                if (isMobile) {
+                    // Redireciona para o app de e-mail do celular
+                    window.location.href = 'mailto:cabeia.despachante.oficial@gmail.com';
+                } else {
+                    // Abre Gmail no navegador do PC
+                    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=cabeia.despachante.oficial@gmail.com');
+                }
+            }
+            </script>
+            
+            
+
+            <!-- Botão de voltar para a home -->
+            <div class="text-center mt-10">
+                <a href="index.html" class="inline-block text-blue-600 hover:underline text-base">
+                    ← Voltar para a Página Inicial
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Rodapé --><!-- Rodapé -->
+<footer style="background-color: #1E1E1E;" class="text-white py-10 text-sm">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+      <div>
+        <h3 class="font-bold text-[#0891EB]">Contato</h3>
+        <p>
+          +244 923 489 648<br />
+          +244 924 982 119<br />
+          <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=cabeia.despachante.oficial@gmail.com" 
+  target="_blank" 
+  class=" hover:underline"
+>
+  cabeia.despachante.oficial@gmail.com
+</a>
+        </p>
+      </div>
+      <div>
+        <h3 class="font-bold text-[#0891EB]">Serviços</h3>
+        <ul>
+          <li>Importação</li>
+          <li>Exportação</li>
+          <li>Classificação de Mercadorias</li>
+          <li>Trânsito Internacional</li>
+          <li>Transporte de Cargas</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-[#0891EB]">Sobre</h3>
+        <ul>
+          <li>Quem somos</li>
+          <li>Política de Qualidade</li>
+          <li>Legislação</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-[#0891EB]">Localização</h3>
+        <p>Luanda-Rua Luis Mota Feo Apart. nº14 - 2º Andar - Alvalade - Luanda</p>
+        <h3 class="font-bold mt-4 text-[#0891EB]">Redes Sociais</h3>
+        <div class="flex space-x-4 mt-2">
+          <i class="fab fa-linkedin text-white"></i>
+          <i class="fab fa-instagram text-white"></i>
+          <i class="fab fa-facebook text-white"></i>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-xs text-gray-400">© 2025 Dongoxi António Cabeia – Todos os direitos reservados.</div>
+  </footer>
+  
+  </body>
+</html>
+
